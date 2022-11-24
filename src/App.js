@@ -6,14 +6,15 @@ import ToDoList from './components/toDoList';
 function App() {
   const [form, setForm] = useState()
   const [allTasks, setAllTasks] = useState()
-  const [data, setData] = useState()
+  const [data, setData] = useState([])
   // data is passed to to do list, all tasks is a fetch request when the form is updated 
-  // useEffect(()=>{
-    // fetch("http://localhost:3000/")
-  //   .then(res => res.json())
-  //   .then(res => setTasks(res.tasks))
-
-  // },[] )
+  useEffect(()=>{
+    console.log()
+    fetch("http://localhost:3000/")
+    .then(res => res.json())
+    .then(res => setData(res.task))
+    console.log(data)
+  },[] )
 
   return (
     <div className="App">
