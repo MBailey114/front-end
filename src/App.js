@@ -14,14 +14,13 @@ function App() {
     fetch("http://localhost:3001/task")
     .then(res => res.json())
     .then(res => {
-      console.log("updating")
       setData(res.task)
     })
   },[allTasks] )
 
   async function getByDate(event){
     console.log("getting date", event.target.value)
-    fetch("http://localhost:3001/task/allTasks/event.target.value")
+    fetch(`http://localhost:3001/task/allTasks/${event.target.value}`)
     .then(res => res.json())
     .then(res => {
       setData(res.task)

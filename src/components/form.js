@@ -8,15 +8,12 @@ export default function Form (props){
     async function submitHandler(event){
         event.preventDefault()
         const data = { "authorName":author, "task":task, "date":date};
-        console.log(data);
-        console.log(author)
         props.setAllTasks(props.allTasks + 1)
         const response = await fetch("http://localhost:3001/task/new",{
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(data)
         })
-        console.log("dasddddddddddddddddddd");
         // const data = await response.json();
         }
 
